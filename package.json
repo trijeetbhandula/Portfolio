@@ -1,0 +1,33 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Modern portfolio website for showcasing projects and skills",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "live-server --port=3000 --open=/",
+    "build": "echo 'No build step required for static site'",
+    "preview": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "developer",
+    "resume",
+    "html",
+    "css",
+    "javascript",
+    "tailwind"
+  ],
+  "author": "Trijeet Bhandula",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trijeetbhandula/portfolio.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
+  }
+}

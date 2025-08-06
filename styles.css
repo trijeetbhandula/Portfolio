@@ -1,0 +1,172 @@
+/* Custom Styles */
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navigation Styles */
+.nav-link {
+    @apply text-gray-300 hover:text-accent transition-colors duration-200 font-medium;
+}
+
+.mobile-nav-link {
+    @apply text-gray-300 hover:text-accent transition-colors duration-200 block px-3 py-2 rounded-md;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply inline-flex items-center px-8 py-3 bg-accent hover:bg-accent-light text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center px-8 py-3 border-2 border-accent text-accent hover:bg-accent hover:text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105;
+}
+
+/* Social Links */
+.social-link {
+    @apply text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110;
+}
+
+/* Hero Animation */
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skill Categories */
+.skill-category {
+    @apply bg-secondary/50 p-6 rounded-lg hover:bg-secondary/70 transition-colors duration-200;
+}
+
+.skill-header {
+    @apply text-center mb-6;
+}
+
+.skill-item {
+    @apply mb-4;
+}
+
+.skill-bar {
+    @apply w-full bg-gray-700 rounded-full h-2;
+}
+
+.skill-progress {
+    @apply h-2 bg-gradient-to-r from-accent to-accent-light rounded-full transition-all duration-1000 ease-out;
+}
+
+/* Project Cards */
+.project-card {
+    @apply bg-secondary/70 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
+}
+
+.project-card:hover {
+    @apply bg-secondary/90;
+}
+
+.project-tech {
+    @apply inline-block bg-accent/20 text-accent px-2 py-1 rounded text-xs mr-2 mb-2;
+}
+
+.project-stats {
+    @apply flex items-center text-sm text-gray-400;
+}
+
+.project-stat {
+    @apply flex items-center mr-4;
+}
+
+/* Contact Form */
+.form-input {
+    @apply w-full px-4 py-3 bg-primary border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200 text-white;
+}
+
+.contact-item {
+    @apply flex items-center space-x-4;
+}
+
+/* Stats */
+.stat-item {
+    @apply text-center;
+}
+
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading Animation */
+.loading {
+    @apply flex justify-center items-center py-20;
+}
+
+.spinner {
+    @apply animate-spin rounded-full h-12 w-12 border-b-2 border-accent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        @apply px-6 py-2 text-sm;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #60a5fa;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, .skill-category, .project-card {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}

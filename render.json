@@ -1,0 +1,5 @@
+{
+  "buildCommand": "echo 'No build required'",
+  "startCommand": "python3 -m http.server $PORT",
+  "environment": "static"
+}
