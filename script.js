@@ -91,31 +91,83 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
 
-        // Simple form validation
-        if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields.');
-            return;
-        }
+            // Simple form validation
+            if (!name || !email || !subject || !message) {
+                showNotification('Please fill in all fields.', 'error');
+                return;
+            }
 
-        // Here you would normally send the form data to your backend
-        // For now, we'll just show a success message
-        alert('Thank you for your message! I\'ll get back to you soon.');
-        contactForm.reset();
-    });
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
 
-    // Load GitHub repositories
-    loadGitHubProjects();
+            // Create mailto link with form data
+            const mailtoLink = `mailto:trijeetbhandula@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            )}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message and reset form
+            showNotification('Email client opened! Thank you for reaching out.', 'success');
+            contactForm.reset();
+        });
+    }
+
+    // Load GitHub repositories (keep this for backup display)
+    // Commented out since we're using curated projects now
+    // loadGitHubProjects();
 });
+
+// Notification system
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+    
+    // Set notification style based on type
+    if (type === 'success') {
+        notification.className += ' bg-green-500/90 text-white';
+        notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i>${message}`;
+    } else if (type === 'error') {
+        notification.className += ' bg-red-500/90 text-white';
+        notification.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i>${message}`;
+    } else {
+        notification.className += ' bg-accent/90 text-white';
+        notification.innerHTML = `<i class="fas fa-info-circle mr-2"></i>${message}`;
+    }
+    
+    // Add to document
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+    }, 100);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
+}
 
 // GitHub API integration
 async function loadGitHubProjects() {
