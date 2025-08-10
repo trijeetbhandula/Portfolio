@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Active navigation highlighting
     const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.nav-link');
+    const navItems = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
     function highlightNavigation() {
         let current = '';
@@ -47,8 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         navItems.forEach(item => {
             item.classList.remove('text-accent');
-            // Only highlight actual navigation links (not buttons in content)
-            if (item.getAttribute('href') === `#${current}` && item.classList.contains('nav-link')) {
+            // Only highlight actual navigation links (not buttons or other content links)
+            const isNavLink = item.classList.contains('nav-link') || item.classList.contains('mobile-nav-link');
+            const isButton = item.classList.contains('btn-primary') || item.classList.contains('btn-secondary');
+            
+            if (item.getAttribute('href') === `#${current}` && isNavLink && !isButton) {
                 item.classList.add('text-accent');
             }
         });
@@ -497,7 +500,7 @@ async function loadFeaturedProjects() {
             }
         }
 
-        // Generate featured project cards with enhanced media display
+        // Generate featured project cards with enhanced and cleaner layout
         featuredContainer.innerHTML = repos.map(repo => {
             const languageColors = {
                 JavaScript: '#F7DF1E',
@@ -514,85 +517,95 @@ async function loadFeaturedProjects() {
             const languageColor = languageColors[repo.language] || '#00D9FF';
             const categoryIcon = getCategoryIcon(repo.name, repo.description, repo.language);
             const hasMedia = repo.mediaFiles && repo.mediaFiles.length > 0;
+            const hasLiveDemo = repo.homepage || repo.has_pages;
+            const liveUrl = repo.homepage || `https://${username}.github.io/${repo.name}`;
             
             return `
-                <div class="project-card bg-secondary/70 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="project-image h-64 ${hasMedia ? 'p-2' : 'bg-gradient-to-br from-accent/20 to-accent-purple/20'} flex items-center justify-center overflow-hidden relative">
+                <div class="project-card bg-gradient-to-br from-secondary/70 to-secondary/90 rounded-xl overflow-hidden hover:transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-accent/10 hover:border-accent/30">
+                    <!-- Project Image/Media Section -->
+                    <div class="project-image h-56 ${hasMedia ? 'p-3' : 'bg-gradient-to-br from-accent/20 to-accent-purple/20'} flex items-center justify-center overflow-hidden relative group">
                         ${generateMediaDisplay(repo.mediaFiles, repo.name, categoryIcon)}
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-white">${repo.name.replace(/-|_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h3>
-                            <div class="flex space-x-3">
-                                <a href="${repo.html_url}" target="_blank" class="text-gray-400 hover:text-accent transition-colors" title="View Source">
-                                    <i class="fab fa-github text-lg"></i>
+                        ${hasLiveDemo ? `
+                            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <a href="${liveUrl}" target="_blank" class="bg-accent hover:bg-accent-light px-6 py-2 rounded-full text-white font-medium transition-all duration-200 transform hover:scale-105">
+                                    <i class="fas fa-eye mr-2"></i>View Live Demo
                                 </a>
-                                ${repo.homepage ? `
-                                    <a href="${repo.homepage}" target="_blank" class="text-gray-400 hover:text-accent transition-colors" title="Live Demo">
-                                        <i class="fas fa-external-link-alt text-lg"></i>
-                                    </a>
-                                ` : ''}
-                                ${repo.has_pages ? `
-                                    <a href="https://${username}.github.io/${repo.name}" target="_blank" class="text-gray-400 hover:text-accent transition-colors" title="GitHub Pages">
-                                        <i class="fas fa-globe text-lg"></i>
-                                    </a>
-                                ` : ''}
                             </div>
-                        </div>
-                        
+                        ` : ''}
+                    </div>
+                    
+                    <!-- Project Content -->
+                    <div class="p-6">
+                        <!-- Project Header -->
                         <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Description</h4>
-                            <p class="text-gray-400 text-sm mb-3">
+                            <h3 class="text-xl font-bold text-white mb-2 hover:text-accent transition-colors duration-200">
+                                ${repo.name.replace(/-|_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
                                 ${repo.description || `A ${getProjectCategory(repo.name, repo.description, repo.language).toLowerCase()} project showcasing modern development practices and clean code architecture.`}
                             </p>
                         </div>
                         
+                        <!-- Technology Stack -->
                         <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Technology</h4>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                ${repo.language ? `<span class="project-tech" style="border-color: ${languageColor}">${repo.language}</span>` : ''}
-                                <span class="project-tech">${getProjectCategory(repo.name, repo.description, repo.language)}</span>
-                                ${hasMedia && repo.mediaFiles.some(m => m.type === 'video') ? '<span class="project-tech bg-red-500/20 text-red-300 border-red-500/50"><i class="fas fa-video mr-1"></i>Demo Video</span>' : ''}
+                            <div class="flex flex-wrap gap-2">
+                                ${repo.language ? `
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium" style="background-color: ${languageColor}20; color: ${languageColor}; border: 1px solid ${languageColor}40;">
+                                        <span class="w-2 h-2 rounded-full mr-2" style="background-color: ${languageColor}"></span>
+                                        ${repo.language}
+                                    </span>
+                                ` : ''}
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent border border-accent/40">
+                                    <i class="${categoryIcon} mr-2 text-xs"></i>
+                                    ${getProjectCategory(repo.name, repo.description, repo.language)}
+                                </span>
+                                ${hasMedia && repo.mediaFiles.some(m => m.type === 'video') ? `
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-300 border border-red-500/40">
+                                        <i class="fas fa-video mr-2"></i>Demo
+                                    </span>
+                                ` : ''}
                             </div>
                         </div>
                         
-                        <div class="mb-4">
-                            <div class="flex items-center justify-between text-sm text-gray-400">
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex items-center space-x-1">
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <span>${repo.stargazers_count}</span>
-                                    </div>
-                                    <div class="flex items-center space-x-1">
-                                        <i class="fas fa-code-branch text-green-400"></i>
-                                        <span>${repo.forks_count}</span>
-                                    </div>
-                                    ${hasMedia ? `
-                                        <div class="flex items-center space-x-1">
-                                            <i class="fas fa-images text-blue-400"></i>
-                                            <span>${repo.mediaFiles.length}</span>
-                                        </div>
-                                    ` : ''}
+                        <!-- Project Stats -->
+                        <div class="flex items-center justify-between text-sm text-gray-400 mb-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center space-x-1 hover:text-yellow-400 transition-colors duration-200">
+                                    <i class="fas fa-star"></i>
+                                    <span>${repo.stargazers_count}</span>
                                 </div>
-                                <div class="text-xs opacity-60">
-                                    Updated ${formatDate(repo.updated_at)}
+                                <div class="flex items-center space-x-1 hover:text-green-400 transition-colors duration-200">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>${repo.forks_count}</span>
                                 </div>
+                                ${hasMedia ? `
+                                    <div class="flex items-center space-x-1 hover:text-blue-400 transition-colors duration-200">
+                                        <i class="fas fa-images"></i>
+                                        <span>${repo.mediaFiles.length}</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                            <div class="text-xs opacity-60">
+                                ${formatDate(repo.updated_at)}
                             </div>
                         </div>
                         
-                        <div class="flex space-x-3">
-                            ${repo.homepage || repo.has_pages ? `
-                                <a href="${repo.homepage || `https://${username}.github.io/${repo.name}`}" target="_blank" class="btn-primary flex-1 text-center">
-                                    <i class="fas fa-eye mr-2"></i>View Live
+                        <!-- Action Buttons - Clean single row -->
+                        <div class="flex gap-3">
+                            ${hasLiveDemo ? `
+                                <a href="${liveUrl}" target="_blank" class="btn-primary flex-1 text-center group">
+                                    <i class="fas fa-eye mr-2 group-hover:animate-pulse"></i>
+                                    Live Demo
+                                </a>
+                                <a href="${repo.html_url}" target="_blank" class="btn-secondary px-4 group">
+                                    <i class="fab fa-github group-hover:animate-bounce"></i>
                                 </a>
                             ` : `
-                                <a href="${repo.html_url}" target="_blank" class="btn-primary flex-1 text-center">
-                                    <i class="fas fa-code mr-2"></i>View Project
+                                <a href="${repo.html_url}" target="_blank" class="btn-secondary flex-1 text-center group">
+                                    <i class="fab fa-github mr-2 group-hover:animate-bounce"></i>
+                                    View Project
                                 </a>
                             `}
-                            <a href="${repo.html_url}" target="_blank" class="btn-secondary flex-1 text-center">
-                                <i class="fab fa-github mr-2"></i>View Code
-                            </a>
                         </div>
                     </div>
                 </div>
