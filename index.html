@@ -28,11 +28,19 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0F172A',
-                        secondary: '#1E293B',
-                        accent: '#3B82F6',
-                        'accent-light': '#60A5FA',
-                        'accent-dark': '#1E40AF',
+                        primary: '#0A0E1A',
+                        secondary: '#1A1F2E',
+                        tertiary: '#2A3441',
+                        accent: '#00D9FF',
+                        'accent-light': '#33E3FF',
+                        'accent-dark': '#0099CC',
+                        'accent-purple': '#8B5CF6',
+                        'accent-pink': '#EC4899',
+                        'accent-green': '#10B981',
+                        'accent-orange': '#F97316',
+                        'text-primary': '#FFFFFF',
+                        'text-secondary': '#CBD5E1',
+                        'text-muted': '#94A3B8',
                     },
                     fontFamily: {
                         'inter': ['Inter', 'sans-serif'],
@@ -40,6 +48,12 @@
                     animation: {
                         'bounce-slow': 'bounce 2s infinite',
                         'pulse-slow': 'pulse 3s infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
                     }
                 }
             }
@@ -217,77 +231,180 @@
                 </p>
             </div>
             <div class="space-y-8">
+                <!-- Sales & Technical Manager -->
                 <div class="bg-secondary/50 p-8 rounded-lg border border-gray-700 hover:border-accent/50 transition-colors">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Self-Taught Developer & Student</h3>
-                            <h4 class="text-accent font-medium mb-2">Personal Projects & Learning</h4>
+                            <h3 class="text-xl font-semibold text-white mb-2">Sales & Technical Manager</h3>
+                            <h4 class="text-accent font-medium mb-2">Phone Xperts</h4>
                         </div>
                         <div class="text-gray-400 text-sm">
-                            <i class="fas fa-calendar-alt mr-2"></i>2022 - Present
+                            <i class="fas fa-calendar-alt mr-2"></i>Apr 2022 – May 2025
                         </div>
                     </div>
                     <ul class="text-gray-300 space-y-2 mb-4">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Built multiple full-stack applications using React.js, Node.js, and modern development tools
+                            Led store operations and a team of 5+ technicians, improving customer satisfaction and efficiency
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Developed responsive web applications with focus on user experience and performance
+                            Diagnosed and repaired 1,000+ devices with <2% return rate
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Learned through online courses, documentation, and hands-on project development
+                            Implemented custom inventory solutions using spreadsheets and low-code tools
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Actively contributing to open-source projects and building a strong GitHub portfolio
+                            Mentored junior staff, fostering technical growth and collaborative problem-solving
                         </li>
                     </ul>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">React.js</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Node.js</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">JavaScript</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">HTML/CSS</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Git</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Team Leadership</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Technical Repair</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Process Improvement</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Customer Service</span>
                     </div>
                 </div>
                 
+                <!-- Project Intern – Flutter Developer -->
                 <div class="bg-secondary/50 p-8 rounded-lg border border-gray-700 hover:border-accent/50 transition-colors">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                         <div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Academic Projects & Learning</h3>
-                            <h4 class="text-accent font-medium mb-2">Computer Science Studies</h4>
+                            <h3 class="text-xl font-semibold text-white mb-2">Project Intern – Flutter Developer</h3>
+                            <h4 class="text-accent font-medium mb-2">Hello World AI</h4>
                         </div>
                         <div class="text-gray-400 text-sm">
-                            <i class="fas fa-calendar-alt mr-2"></i>2020 - 2022
+                            <i class="fas fa-calendar-alt mr-2"></i>Nov 2024 – Jan 2025
                         </div>
                     </div>
                     <ul class="text-gray-300 space-y-2 mb-4">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Completed coursework in data structures, algorithms, and software engineering principles
+                            Rebuilt "My Weekly Dash" using Flutter and Supabase, improved UI and user engagement
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Built foundational knowledge in programming languages including Python, Java, and JavaScript
+                            Integrated cloud deployment and secure data syncing with Supabase
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Developed problem-solving skills through coding challenges and algorithm implementation
+                            Led authentication, goal tracking, and weekly planning features
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
-                            Started exploring web development and fell in love with creating interactive applications
+                            Used Git and GitHub for version control and GitHub Actions for automation
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Followed Agile/Scrum with bi-weekly sprints
                         </li>
                     </ul>
                     <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Flutter</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Supabase</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Git/GitHub</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Agile/Scrum</span>
+                    </div>
+                </div>
+
+                <!-- Academic Staff -->
+                <div class="bg-secondary/50 p-8 rounded-lg border border-gray-700 hover:border-accent/50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Academic Staff</h3>
+                            <h4 class="text-accent font-medium mb-2">James Cook University</h4>
+                        </div>
+                        <div class="text-gray-400 text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>May 2024 – Aug 2024
+                        </div>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 mb-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Facilitated workshops in Collective Intelligence and E-commerce
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Achieved 95% positive feedback on teaching effectiveness
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Guided students in digital strategy, GRC, and tech applications
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Teaching</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">E-commerce</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Digital Strategy</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">GRC</span>
+                    </div>
+                </div>
+
+                <!-- Research Worker -->
+                <div class="bg-secondary/50 p-8 rounded-lg border border-gray-700 hover:border-accent/50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Research Worker</h3>
+                            <h4 class="text-accent font-medium mb-2">James Cook University</h4>
+                        </div>
+                        <div class="text-gray-400 text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Apr 2024 – July 2024
+                        </div>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 mb-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Conducted usability testing for a university app, improving navigation flow by 20%
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Contributed to UX design and beta testing sessions
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Presented actionable insights to the development team
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">UX Research</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Usability Testing</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Data Analysis</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">User Experience</span>
+                    </div>
+                </div>
+
+                <!-- Project Intern - AI -->
+                <div class="bg-secondary/50 p-8 rounded-lg border border-gray-700 hover:border-accent/50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Project Intern</h3>
+                            <h4 class="text-accent font-medium mb-2">Impact 10X Vac Prac</h4>
+                        </div>
+                        <div class="text-gray-400 text-sm">
+                            <i class="fas fa-calendar-alt mr-2"></i>Nov 2022 – Feb 2023
+                        </div>
+                    </div>
+                    <ul class="text-gray-300 space-y-2 mb-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Contributed to an AI model for road sign detection aiding visually impaired users
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Completed fast.ai deep learning course, trained models on real-world datasets
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mt-1 mr-3 text-sm"></i>
+                            Applied Agile practices and version control in collaborative prototyping
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">AI/ML</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Deep Learning</span>
+                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Computer Vision</span>
                         <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Python</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Java</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Algorithms</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Data Structures</span>
-                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs">Problem Solving</span>
                     </div>
                 </div>
             </div>
@@ -423,241 +540,19 @@
     <section id="projects" class="py-20 bg-secondary/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Featured Projects</h2>
+                <h2 class="text-4xl font-bold mb-4">My Projects</h2>
                 <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
                 <p class="text-gray-400 max-w-2xl mx-auto">
-                    Here are some projects that showcase my skills and problem-solving approach
+                    Here are my key projects that showcase my skills and development journey
                 </p>
             </div>
             
-            <!-- Featured Projects Grid -->
-            <div class="grid lg:grid-cols-2 gap-8 mb-12">
-                
-                <!-- Project 1: Portfolio Website -->
-                <div class="project-card bg-secondary/70 rounded-lg overflow-hidden">
-                    <div class="project-image h-48 bg-gradient-to-br from-accent/20 to-purple-600/20 flex items-center justify-center">
-                        <i class="fas fa-user text-6xl text-accent/50"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-white">Personal Portfolio Website</h3>
-                            <div class="flex space-x-3">
-                                <a href="https://github.com/trijeetbhandula/portfolio" target="_blank" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fas fa-external-link-alt text-lg"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Problem & Solution</h4>
-                            <p class="text-gray-400 text-sm mb-3">
-                                I needed a professional online presence to showcase my skills to potential employers. 
-                                I built this responsive portfolio with modern design principles and GitHub integration.
-                            </p>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Tech Stack</h4>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="project-tech">HTML/CSS</span>
-                                <span class="project-tech">JavaScript</span>
-                                <span class="project-tech">Tailwind CSS</span>
-                                <span class="project-tech">Render</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Key Features</h4>
-                            <ul class="text-gray-400 text-sm space-y-1">
-                                <li>• Responsive design for all devices</li>
-                                <li>• GitHub API integration for dynamic projects</li>
-                                <li>• Smooth animations and modern UI</li>
-                                <li>• SEO optimized and fast loading</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="flex space-x-3">
-                            <a href="#" class="btn-primary flex-1 text-center">
-                                <i class="fas fa-eye mr-2"></i>View Live
-                            </a>
-                            <a href="https://github.com/trijeetbhandula/portfolio" target="_blank" class="btn-secondary flex-1 text-center">
-                                <i class="fab fa-github mr-2"></i>View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: E-Commerce App -->
-                <div class="project-card bg-secondary/70 rounded-lg overflow-hidden">
-                    <div class="project-image h-48 bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center">
-                        <i class="fas fa-shopping-cart text-6xl text-green-400/50"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-white">E-Commerce Platform</h3>
-                            <div class="flex space-x-3">
-                                <a href="#" target="_blank" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fas fa-external-link-alt text-lg"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Problem & Solution</h4>
-                            <p class="text-gray-400 text-sm mb-3">
-                                Built a full-stack e-commerce solution with user authentication, product management, 
-                                shopping cart functionality, and secure payment integration.
-                            </p>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Tech Stack</h4>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="project-tech">React.js</span>
-                                <span class="project-tech">Node.js</span>
-                                <span class="project-tech">MongoDB</span>
-                                <span class="project-tech">Express.js</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Key Features</h4>
-                            <ul class="text-gray-400 text-sm space-y-1">
-                                <li>• User authentication & authorization</li>
-                                <li>• Product catalog with search & filters</li>
-                                <li>• Shopping cart & checkout process</li>
-                                <li>• Admin panel for product management</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="flex space-x-3">
-                            <a href="#" class="btn-primary flex-1 text-center">
-                                <i class="fas fa-eye mr-2"></i>View Live
-                            </a>
-                            <a href="#" target="_blank" class="btn-secondary flex-1 text-center">
-                                <i class="fab fa-github mr-2"></i>View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Task Management App -->
-                <div class="project-card bg-secondary/70 rounded-lg overflow-hidden">
-                    <div class="project-image h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-                        <i class="fas fa-tasks text-6xl text-purple-400/50"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-white">Task Management System</h3>
-                            <div class="flex space-x-3">
-                                <a href="#" target="_blank" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fas fa-external-link-alt text-lg"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Problem & Solution</h4>
-                            <p class="text-gray-400 text-sm mb-3">
-                                Created a productivity app with drag-and-drop functionality, task categorization, 
-                                progress tracking, and team collaboration features.
-                            </p>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Tech Stack</h4>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="project-tech">React.js</span>
-                                <span class="project-tech">TypeScript</span>
-                                <span class="project-tech">Firebase</span>
-                                <span class="project-tech">Material-UI</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Key Features</h4>
-                            <ul class="text-gray-400 text-sm space-y-1">
-                                <li>• Drag-and-drop task management</li>
-                                <li>• Real-time collaboration</li>
-                                <li>• Progress tracking & analytics</li>
-                                <li>• Mobile-responsive design</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="flex space-x-3">
-                            <a href="#" class="btn-primary flex-1 text-center">
-                                <i class="fas fa-eye mr-2"></i>View Live
-                            </a>
-                            <a href="#" target="_blank" class="btn-secondary flex-1 text-center">
-                                <i class="fab fa-github mr-2"></i>View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Weather App -->
-                <div class="project-card bg-secondary/70 rounded-lg overflow-hidden">
-                    <div class="project-image h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                        <i class="fas fa-cloud-sun text-6xl text-blue-400/50"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-semibold text-white">Weather Dashboard</h3>
-                            <div class="flex space-x-3">
-                                <a href="#" target="_blank" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
-                                <a href="#" class="text-gray-400 hover:text-accent transition-colors">
-                                    <i class="fas fa-external-link-alt text-lg"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Problem & Solution</h4>
-                            <p class="text-gray-400 text-sm mb-3">
-                                Developed a comprehensive weather application with location-based forecasts, 
-                                interactive charts, and beautiful weather animations.
-                            </p>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Tech Stack</h4>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="project-tech">JavaScript</span>
-                                <span class="project-tech">Chart.js</span>
-                                <span class="project-tech">Weather API</span>
-                                <span class="project-tech">CSS3</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-accent font-medium mb-2">Key Features</h4>
-                            <ul class="text-gray-400 text-sm space-y-1">
-                                <li>• Real-time weather data</li>
-                                <li>• 7-day forecast with charts</li>
-                                <li>• Geolocation & city search</li>
-                                <li>• Beautiful weather animations</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="flex space-x-3">
-                            <a href="#" class="btn-primary flex-1 text-center">
-                                <i class="fas fa-eye mr-2"></i>View Live
-                            </a>
-                            <a href="#" target="_blank" class="btn-secondary flex-1 text-center">
-                                <i class="fab fa-github mr-2"></i>View Code
-                            </a>
-                        </div>
+            <!-- Featured Projects Grid - Will be populated by GitHub API -->
+            <div id="featured-projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="col-span-full loading">
+                    <div class="flex flex-col items-center justify-center py-20">
+                        <div class="spinner mb-4"></div>
+                        <p class="text-accent animate-pulse">Loading featured projects...</p>
                     </div>
                 </div>
             </div>
@@ -805,23 +700,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-secondary/70 p-8 rounded-lg">
+                <div class="bg-gradient-to-br from-secondary/70 to-tertiary/70 p-8 rounded-xl backdrop-blur-lg border border-accent/20">
                     <form id="contact-form">
                         <div class="mb-6">
-                            <label for="name" class="block text-sm font-medium mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
+                            <label for="name" class="block text-sm font-medium mb-2 text-text-secondary">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
                         </div>
                         <div class="mb-6">
-                            <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                            <label for="email" class="block text-sm font-medium mb-2 text-text-secondary">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
                         </div>
                         <div class="mb-6">
-                            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
+                            <label for="subject" class="block text-sm font-medium mb-2 text-text-secondary">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?" required>
                         </div>
                         <div class="mb-6">
-                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="form-input" required></textarea>
+                            <label for="message" class="block text-sm font-medium mb-2 text-text-secondary">Message</label>
+                            <textarea id="message" name="message" rows="5" class="form-input" placeholder="Tell me about your project, ideas, or just say hello!" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary w-full">
                             <i class="fas fa-paper-plane mr-2"></i>Send Message

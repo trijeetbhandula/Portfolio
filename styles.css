@@ -6,29 +6,60 @@
 body {
     line-height: 1.6;
     overflow-x: hidden;
+    background: linear-gradient(135deg, #0A0E1A 0%, #1A1F2E 50%, #2A3441 100%);
+    color: #FFFFFF;
+}
+
+/* Custom animations */
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(0, 217, 255, 0.3); }
+    to { box-shadow: 0 0 30px rgba(0, 217, 255, 0.6); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 /* Navigation Styles */
 .nav-link {
-    @apply text-gray-300 hover:text-accent transition-colors duration-200 font-medium;
+    @apply text-text-secondary hover:text-accent transition-all duration-300 font-medium relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: linear-gradient(90deg, #00D9FF, #8B5CF6);
+    transition: all 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 .mobile-nav-link {
-    @apply text-gray-300 hover:text-accent transition-colors duration-200 block px-3 py-2 rounded-md;
+    @apply text-text-secondary hover:text-accent transition-all duration-300 block px-3 py-2 rounded-md hover:bg-accent/10;
 }
 
 /* Button Styles */
 .btn-primary {
-    @apply inline-flex items-center px-8 py-3 bg-accent hover:bg-accent-light text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    @apply inline-flex items-center px-8 py-3 bg-gradient-to-r from-accent to-accent-purple text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .btn-secondary {
-    @apply inline-flex items-center px-8 py-3 border-2 border-accent text-accent hover:bg-accent hover:text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105;
+    @apply inline-flex items-center px-8 py-3 border-2 border-accent text-accent hover:bg-gradient-to-r hover:from-accent hover:to-accent-purple hover:text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105;
 }
 
 /* Social Links */
 .social-link {
-    @apply text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110;
+    @apply text-text-muted hover:text-accent transition-all duration-300 transform hover:scale-110;
+    filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
 }
 
 /* Hero Animation */
@@ -85,6 +116,51 @@ body {
     border-bottom: 1px solid rgba(75, 85, 99, 0.2);
 }
 
+/* Enhanced media display */
+.project-image video {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.project-image img {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.project-image:hover video,
+.project-image:hover img {
+    transform: scale(1.02);
+}
+
+/* Image slideshow functionality */
+.image-slideshow {
+    cursor: pointer;
+}
+
+.image-slideshow:hover .absolute.inset-0 {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Loading state for videos */
+.loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #00D9FF;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .project-tech {
     @apply inline-block bg-accent/20 text-accent px-2 py-1 rounded text-xs mr-2 mb-2;
 }
@@ -110,7 +186,43 @@ body {
 
 /* Contact Form */
 .form-input {
-    @apply w-full px-4 py-3 bg-primary border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors duration-200 text-white;
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(42, 52, 65, 0.8);
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    border-radius: 8px;
+    color: #FFFFFF !important;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #00D9FF;
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+    background: rgba(42, 52, 65, 1);
+    color: #FFFFFF !important;
+}
+
+.form-input::placeholder {
+    color: #94A3B8 !important;
+    opacity: 0.7;
+}
+
+.form-input::-webkit-input-placeholder {
+    color: #94A3B8 !important;
+    opacity: 0.7;
+}
+
+.form-input::-moz-placeholder {
+    color: #94A3B8 !important;
+    opacity: 0.7;
+}
+
+.form-input:-ms-input-placeholder {
+    color: #94A3B8 !important;
+    opacity: 0.7;
 }
 
 .contact-item {
